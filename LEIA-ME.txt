@@ -1,0 +1,80 @@
+CALISTHENICS RANK — app pessoal (PWA, offline, só no seu iPhone)
+=================================================================
+
+COMO COLOCAR NO AR (mesmo processo de antes)
+1. Descompacte o .zip no computador (ou use o app Arquivos do iPhone).
+2. Netlify Drop (app.netlify.com/drop): arraste a PASTA descompactada (com index.html dentro).
+   Ou GitHub Pages: envie todos os arquivos para o repositório.
+3. No iPhone, abra o link no Safari > Compartilhar > "Adicionar à Tela de Início".
+   Abra uma vez com internet; depois funciona offline.
+
+COMO ATUALIZAR (quando eu te mandar uma versão nova)
+1. Suba os arquivos novos NO MESMO site (mesmo link). Seus dados continuam no aparelho.
+2. Se você mesmo mexer em algum arquivo, aumente o número em sw.js:  const V = 'calisthenics-v6';
+3. Abra o app com internet, feche e abra de novo.
+   IMPORTANTE: se o link mudar, os dados NÃO vêm junto. Antes de trocar, use Profile > Backup > Export.
+
+SEUS DADOS ANTIGOS: se você usava a versão em português NO MESMO link, refeições, água, peso e
+dias treinados são importados automaticamente na primeira abertura.
+
+
+NOVIDADES DA v7 (correcao dos personagens)
+- Trocar cor de cabelo/pele nao "briga" mais: cada parte (pele, cabelo, barba, roupa, sobrancelha) tem mascara propria; orelhas e pescoco acompanham o tom de pele.
+- Cor "Hair, hat & beard" muda cabelo, gorro e barba juntos; "Beard only" muda so a barba.
+- Barba: aba Character > Beard = Full beard / Stubble (barba curta) / Clean (sem barba). Todos os 27 personagens tem as 3 versoes.
+- Como atualizar: envie TODOS os arquivos (inclui img/av com ~108 imagens). No GitHub pelo navegador o limite e ~100 arquivos por envio: faca em varios lotes. Prefira Netlify (arraste o zip).
+- Se o iPhone mostrar versao antiga: feche o app, abra o link em aba privada do Safari; o sw.js agora e 'calisthenics-v8'.
+
+NOVIDADES DA v6
+- Personagem refeito com as SUAS imagens (folhas do Dreamina): 27 personagens recortados, no mesmo tamanho e alinhamento.
+- Perfil > Character: escolha o personagem. Mood: 15 expressoes (feliz, rindo, triste, chorando, preocupado,
+  pensativo, bravo, psicopata, chocado, sonolento, descolado, convencido, brincalhao, serio) + 6 tipos de nariz.
+- Colors: cor da pele (incluindo tons de fantasia), cabelo/chapeu, barba, roupa e fundo.
+- Extras: oculos (redondo, quadrado, escuro), brincos, sardas, blush, cicatriz, tapa-olho.
+- Icone do app trocado pela imagem da chama. IMPORTANTE: para o iPhone atualizar o icone, apague o atalho da tela
+  inicial e adicione de novo (Safari > Compartilhar > Adicionar a Tela de Inicio). Seus dados nao se perdem.
+- Se o app mostrar a versao antiga, feche-o completamente e abra de novo (o service worker atualiza para a v7).
+
+NOVIDADES DA v5
+- TODAS as figuras de exercícios agora vêm da imagem gerada no Leonardo AI que você enviou (recortadas, recoloridas em tom claro para o modo escuro).
+- Observação: a imagem não tem "Handstand push-up"; essa figura usa a imagem do One-arm handstand. Mande uma imagem específica se quiser trocar.
+
+NOVIDADES DA v4 (sobre a v3)
+- Corpo muscular refeito a partir da imagem anatômica (martsan, Pixabay): cada músculo é uma região separada, pintada pelo rank.
+- Figuras dos exercícios agora são silhuetas realistas (estilo da silhueta preta que você enviou), com sombra para o braço/perna do fundo.
+- Criador de personagem em Profile: cabelo, cor, rosto, olhos, sobrancelhas, boca, barba, roupa, acessórios, fundo, botão Randomize e 8 personagens prontos.
+- Arquivos novos/alterados: js/chars.js, js/bodydata.js, js/body.js, img/fig-*.png (img/body-lines.png foi removido).
+
+NOVIDADES DA v3
+- "Start Training" virou "Locked In": um toque confirma o treino do dia e mantém o streak (sem tela de exercício).
+  Dá para desfazer no mesmo botão. A chama do topo fica laranja quando você treinou hoje.
+- Barra superior nova: avatar (escolha o personagem em Profile), nível com barra de XP, streak, rank geral e engrenagem (configurações).
+- Rank mudou de filosofia: o rank NÃO sobe só por usar o app. Ele vem das cargas/repetições que você registra.
+  Cada músculo usa suas 3 melhores contribuições; o rank geral é a média de TODOS os 13 músculos (músculo sem treino = 0).
+  Para chegar em Legend é preciso repetições e carga extra absurdas em todos os músculos.
+- Corpo pintado sem o efeito metálico: só silhueta + linhas dos músculos, cor dentro de cada músculo.
+- Exercícios com figuras 3D novas (arquivos img/fig-*.png).
+
+COMO O RANK É CALCULADO (resumo; dentro do app: Ranks > ícone "i")
+- Cada série vale 0–1000 pontos, conforme uma tabela por exercício/variação (ex.: 13 pull-ups ≈ 400 pts).
+- A cada 100 pts = um tier: Iron, Bronze, Silver, Gold, Platinum, Diamond, Master, Elite, Legend (800+),
+  cada um com degraus I, II, III (Legend não tem).
+- Peso extra vira "repetições equivalentes" pela fórmula de Epley (1RM = carga × (1 + reps/30)).
+- Rank do exercício = sua melhor série (sempre, ou nos últimos 30/90 dias — Profile).
+- Rank do músculo = média ponderada das 3 melhores contribuições dos exercícios que o trabalham.
+- Rank geral = média dos 13 músculos; libera com 3 exercícios ranqueados.
+- Nível/XP (separado do rank): 50 XP por treino + 10 por série.
+- As tabelas iniciais são estimativas baseadas em padrões públicos; edite em Ranks > Exercises > (exercício) > Edit scale.
+
+FONTES (pesquisa)
+- Strength Level: padrões de pull-ups, push-ups e dips
+- FitnessVolt: progressões de front lever e planche
+- BoxRox: referência de muscle-up
+- Liftoff (liftoffrank.com): conceito de ranks por exercício/músculo
+Obs.: amigos, ligas e ranking global exigem servidor — não existem neste app (tudo é só no seu aparelho).
+
+ARTE
+- Corpo com músculos: gráfico anatômico de "martsan" no Pixabay (licença Pixabay: uso livre; crédito no rodapé do Profile).
+  Reprocessado: regiões musculares vetorizadas e agrupadas nos 13 músculos do app.
+- Figuras dos exercícios: gerado no Leonardo AI (enviado por você, uso pessoal). Personagens: arte original deste app.
+- IMPORTANTE ao atualizar: suba TODOS os arquivos e pastas (js/, img/, icons/). Arquivos antigos js/sil.js e js/sildata.js foram removidos.
